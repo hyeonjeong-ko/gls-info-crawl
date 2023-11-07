@@ -26,10 +26,10 @@ allowed_categories = [
 
 
 # 합칠 CSV 파일들이 들어있는 디렉토리 경로
-directory_path = "./"
+directory_path = "major_course_data/"
 
 # 결과를 저장할 파일명과 경로
-output_file = "merged_course_data.csv"
+output_file = "crawling_code/v2-merged_course_data.csv"
 
 # 빈 DataFrame 생성
 merged_data = pd.DataFrame()

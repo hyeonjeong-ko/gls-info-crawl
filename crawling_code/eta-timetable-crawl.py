@@ -80,10 +80,10 @@ for key, value in subject_info_map.items():
 import pandas as pd
 
 # 디렉토리 경로
-directory_path = "./"
+directory_path = "crawling_code/"
 
 # 불러올 파일명과 경로
-course_data_file = "test_course_data.csv"
+course_data_file = "v2-merged_course_data.csv"
 
 filepath = os.path.join(directory_path, course_data_file)
 course_data = pd.read_csv(filepath, encoding="ansi")
