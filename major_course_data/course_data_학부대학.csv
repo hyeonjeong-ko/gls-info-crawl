@@ -1,29 +1,297 @@
-college_name,Department Name,Course Name,Professor,Class Time
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",권영돈,"월12:00-13:15【22319】,수13:30-14:45【22319】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",황의헌,"월12:00-13:15【27511】,수13:30-14:45【27511】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】"
-학부대학,공학계열,"공학기초수학2
-Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】"
-학부대학,공학계열,"인공지능과디지털수학
-Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】"
-학부대학,공학계열,"인공지능과디지털수학
-Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】"
-학부대학,정보통신계열,"확률및랜덤프로세스
-Probability and Random Processes",정민영,"월16:30-17:45【21502】,수15:00-16:15【21502】"
-학부대학,정보통신계열,"확률및랜덤프로세스
-Probability and Random Processes",김중규,"화10:30-11:45【22211】,목09:00-10:15【22211】"
-학부대학,정보통신계열,"확률및랜덤프로세스
-Probability and Random Processes",이준호,"화13:30-14:45【22211】,목12:00-13:15【22211】"
-학부대학,정보통신계열,"확률및랜덤프로세스
-Probability and Random Processes",박정우,"화15:00-16:15【400118】,목16:30-17:45【400118】"
+class_code,college_name,department_name,course_name,professor,class_time,class_type
+ERC2011-41,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월12:00-13:15【22319】,수13:30-14:45【22319】",일반수업
+ERC2011-42,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",황의헌,"월12:00-13:15【27511】,수13:30-14:45【27511】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ERC2011-44,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월13:30-14:45【22310】,수12:00-13:15【22310】",국제어수업
+ERC2011-45,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월15:00-16:15【22310】,수16:30-17:45【22310】",국제어수업
+ERC2011-46,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최문택,"월16:30-17:45【22310】,수15:00-16:15【22310】",국제어수업
+ERC2011-47,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",원병묵,"월10:30-11:45【22319】,수09:00-10:15【22319】",일반수업
+ERC2011-48,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",권영돈,"월13:30-14:45【22319】,수12:00-13:15【22319】",일반수업
+ERC2011-49,학부대학,공학계열,"공학기초수학2
+Fundamental Mathematics in Engineering2",최현기,"화15:00-16:15【22410】,목16:30-17:45【22410】",일반수업
+ERC2012-41,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"화09:00-10:15【26223】,화10:30-11:45【26223】",일반수업
+ERC2012-42,학부대학,공학계열,"인공지능과디지털수학
+Digital Mathematics for Artificial Intelligence",김현수,"금09:00-10:15【26515】,금10:30-11:45【26515】",일반수업
+ICE2003-41,학부대학,정보통신계열,"확률및랜덤프로세스
+Probability and Random Processes",정민영,"월16:30-17:45【21502】,수15:00-16:15【21502】",일반수업
+ICE2003-43,학부대학,정보통신계열,"확률및랜덤프로세스
+Probability and Random Processes",김중규,"화10:30-11:45【22211】,목09:00-10:15【22211】",일반수업
+ICE2003-44,학부대학,정보통신계열,"확률및랜덤프로세스
+Probability and Random Processes",이준호,"화13:30-14:45【22211】,목12:00-13:15【22211】",일반수업
+ICE2003-45,학부대학,정보통신계열,"확률및랜덤프로세스
+Probability and Random Processes",박정우,"화15:00-16:15【400118】,목16:30-17:45【400118】",일반수업

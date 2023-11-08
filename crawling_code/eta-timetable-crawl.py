@@ -68,9 +68,9 @@ for index, div in enumerate(subject_divs, start=1):
     if classroom is not None:  # or subject_name is not None
         # 맵 자료구조에 저장
         subject_info_map[f"Div {index}"] = {
-            "Course Name": subject_name,
-            "Professor": professor_name,
-            "Class Room": classroom,
+            "course_name": subject_name,
+            "professor": professor_name,
+            "class_room": classroom,
         }
 
 for key, value in subject_info_map.items():
@@ -80,17 +80,20 @@ for key, value in subject_info_map.items():
 import pandas as pd
 
 # 디렉토리 경로
-directory_path = "crawling_code/"
+directory_path = "major_course_data/"
 
 # 불러올 파일명과 경로
-course_data_file = "v2-merged_course_data.csv"
+course_data_file = "merged_course_data.csv"
 
 filepath = os.path.join(directory_path, course_data_file)
 course_data = pd.read_csv(filepath, encoding="ansi")
 
-course_data["Course Name"] = course_data["Course Name"].astype(str)
-course_data["Professor"] = course_data["Professor"].astype(str)
-course_data["Class Room"] = course_data["Class Room"].astype(str)
+course_data["class_code"] = course_data["class_code"].astype(str)  # 118 추가된부분
+
+course_data["course_name"] = course_data["course_name"].astype(str)
+course_data["professor"] = course_data["professor"].astype(str)
+course_data["class_room"] = course_data["class_room"].astype(str)
+course_data["class_type"] = course_data["class_type"].astype(str)
 
 # 교수명이 "차수영"인 행 검색
 # result = course_data[
@@ -116,7 +119,7 @@ for key, value in subject_info_map.items():
 
     # df_empty.to_csv(csv_file_path, encoding="ansi", index=False)
 
-df_empty["Class Time"] = None
+df_empty["class_time"] = None
 
 # 각 Div에 대해 course_data에서 해당 강의 정보 찾기
 for div, course_info in subject_info_map.items():
@@ -124,48 +127,103 @@ for div, course_info in subject_info_map.items():
     print("===========")
     print("rownum: ", rownum)
     print("===========")
-    course_name = course_info["Course Name"]
-    professor = course_info["Professor"]
-    class_room = course_info["Class Room"]
+    course_name = course_info["course_name"]
+    professor = course_info["professor"]
+    class_room = course_info["class_room"]
 
     print(course_name, professor)
 
     # 해당 강의 정보 찾기
     found_course = course_data[
-        (course_data["Professor"] == professor)
-        & (course_data["Course Name"].str.contains(course_name))
-        & (course_data["Class Room"].str.contains(class_room))
-        & course_data["Class Time"]
+        (course_data["professor"] == professor)
+        & (course_data["course_name"].str.contains(course_name))
+        & (course_data["class_room"].str.contains(class_room))
+        & course_data["class_time"]
     ]
 
     # Class Time이 같은 중복 행 제거
-    found_course = found_course.drop_duplicates(subset=["Class Time"])
+    found_course = found_course.drop_duplicates(subset=["class_time"])
+    #    found_course = found_course.drop_duplicates(subset=["course_name"])
 
     # 각 행의 데이터를 JSON 형식으로 변환하여 리스트에 추가
     for index, row in found_course.iterrows():
-        row_data = row.drop("college_name").to_dict()  # college_name 칼럼을 제외하고 딕셔너리로 변환
+        row_data = (
+            row.drop("college_name").drop("department_name").to_dict()
+        )  # college_name 칼럼을 제외하고 딕셔너리로 변환
         json_data_list.append(row_data)
 
     print(f"Course information for {div}:")
-    # print(found_course.iloc[0])
     print(found_course)
 
     # 결과 DataFrame에 추가
     df_empty = pd.concat([df_empty, found_course])
 df_empty.to_csv(csv_file_path, encoding="ansi", index=False)
+
+###
+# 중복된 'class_code'를 추적할 집합 생성
+seen_codes = set()
+
+# 중복된 'class_code'를 가진 항목을 필터링하여 새로운 리스트를 생성
+unique_json_data_list = []
+for data in json_data_list:
+    if data["class_code"] not in seen_codes:
+        unique_json_data_list.append(data)
+        seen_codes.add(data["class_code"])
+
+# 'college_name'을 제거
+for data in unique_json_data_list:
+    if "college_name" in data:
+        del data["college_name"]
+
+###
 print("==============================")
-print(json_data_list)
+print(unique_json_data_list)
 print("==============================")
 
 
 # import json
 
-# # 데이터를 Node.js 서버로 전송
-# url = "http://localhost:8080/timetables/courses"
-# headers = {"Content-Type": "application/json"}
-# response = requests.post(url, data=json.dumps(json_data_list), headers=headers)
+# 유저의 시간표 데이터를 서버 db로 전송!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# import sqlite3
 
-# if response.status_code == 200:
-#     print("데이터 전송 성공")
-# else:
-#     print("데이터 전송 실패")
+# # 연결 및 커서 생성
+# conn = sqlite3.connect("skkedula-v1.db")
+# cursor = conn.cursor()
+
+
+# # Students
+# # cursor.execute("SELECT ID FROM Students WHERE User_ID=?", ("1",))
+
+
+# # Student_ID 설정
+# student_id = 1  # 사용자의 ID로 가정
+
+# # user_id = cursor.fetchone()[0]
+
+# # 주어진 데이터로부터 Course_ID 추출
+# course_ids = [data["class_code"] for data in unique_json_data_list]
+
+
+# # Enrollments 테이블에 수강정보 삽입
+# for course_id in course_ids:
+#     cursor.execute(
+#         """
+#         SELECT * FROM Enrollments WHERE Student_ID = ? AND Course_ID = ?
+#         """,
+#         (student_id, course_id),
+#     )
+#     existing_data = cursor.fetchone()  # 이미 있는 데이터가 있는지 확인
+
+#     if not existing_data:
+#         cursor.execute(
+#             """
+#             INSERT INTO Enrollments (Student_ID, Course_ID)
+#             VALUES (?, ?)
+#             """,
+#             (student_id, course_id),
+#         )
+# # 변경사항 저장
+# conn.commit()
+
+# # 연결 종료
+# conn.close()

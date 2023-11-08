@@ -2,11 +2,6 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.action_chains import ActionChains
-from collections import OrderedDict
 import time
 import subprocess
 
@@ -60,35 +55,60 @@ def extract_course_info(browser, college_name, major):
             class_time = None
 
             for i, element in enumerate(elements):
+                if i == 1:
+                    class_code = element.text
                 if i == 2:
                     course_name = element.text
                 if i == 3:
                     professor = element.text
                 if i == 6:
                     class_time = element.text
+                if i == 7:
+                    class_type = element.text
 
             if major and course_name and professor and class_time:
+                if major == "에너지과학연계전공" or major == "인공지능융합전공":
+                    class_type = ""
+                elif major == "데이터사이언스융합전공":
+                    class_type = "일반수업"
                 if [
-                    college_name,
                     major,
                     course_name,
                     professor,
                     class_time,
                 ] not in data:
                     data.append(
-                        [college_name, major, course_name, professor, class_time]
+                        [
+                            class_code,
+                            college_name,
+                            major,
+                            course_name,
+                            professor,
+                            class_time,
+                            class_type,
+                        ]
                     )
                     tmp_rows.append(
-                        [college_name, major, course_name, professor, class_time]
+                        [
+                            class_code,
+                            college_name,
+                            major,
+                            course_name,
+                            professor,
+                            class_time,
+                            class_type,
+                        ]
                     )
 
                     print(
                         "data row:",
+                        class_code,
                         college_name,
                         major,
                         course_name,
                         professor,
                         class_time,
+                        class_type,
                     )
 
     return data
@@ -96,19 +116,19 @@ def extract_course_info(browser, college_name, major):
 
 # 카테고리 리스트
 allowed_categories = [
-    # "공과대학",
-    # "사회과학대학",
-    # "생명공학대학",
-    # "성균나노과학기술원",
-    # "성균융합원",
-    # "소프트웨어대학",
-    # "소프트웨어융합대학",
-    # "스포츠과학대학",
-    # "약학대학",
-    # "의과대학",
-    # "자연과학대학",
-    # "정보통신대학",
-    # "학부대학",
+    ## "공과대학",
+    ## "사회과학대학",
+    ## "생명공학대학",
+    ## "성균나노과학기술원",
+    "성균융합원",
+    ## "소프트웨어대학",
+    ## "소프트웨어융합대학",
+    ## "스포츠과학대학",
+    ## "약학대학",
+    ## "의과대학",
+    ## "자연과학대학",
+    ## "정보통신대학",
+    ## "학부대학",
 ]
 
 
@@ -308,18 +328,20 @@ for index, tag in enumerate(univ_tag_list, start=1):
             print("scraping 완료")
 
         # CSV file path
-        csv_file_path = f"course_data_{college_name}.csv"
+        csv_file_path = f"major_course_data/course_data_{college_name}.csv"
 
         # Write the data to a CSV file
         with open(csv_file_path, mode="w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(
                 [
+                    "class_code",
                     "college_name",
-                    "Department Name",
-                    "Course Name",
-                    "Professor",
-                    "Class Time",
+                    "department_name",
+                    "course_name",
+                    "professor",
+                    "class_time",
+                    "class_type",
                 ]
             )  # Write header
             for row_data in data:
