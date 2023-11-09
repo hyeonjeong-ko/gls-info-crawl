@@ -97,12 +97,17 @@ app.post('/timetables/fromto-infos', (req, res) => {
   );
 });
 
-
-
-
-
-
-
+// Courses를 JSON으로 반환하는 엔드포인트
+app.get('/courses', (req, res) => {
+    db.all('SELECT * FROM Courses', (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.json({ courses: rows }); // courses 테이블의 내용을 JSON으로 반환
+    });
+  });
+  
 
 
 
