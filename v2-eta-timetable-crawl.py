@@ -13,7 +13,7 @@ import sqlite3
 # GET 요청을 처리하는 엔드포인트
 @app.get("/")
 async def read_root():
-    return {"message": "Hello, World!"}
+    return {"message": "8000포트 테스트 코드 입니다."}
 
 
 @app.post("/scrape_course_info/")
