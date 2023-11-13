@@ -63,7 +63,7 @@ async def scrape_course_info(url: str):
     json_data_list = []
 
     # SQLite 데이터베이스 연결
-    conn = sqlite3.connect("../skkedula-v1.db")
+    conn = sqlite3.connect("skkedula-v1.db")
 
     # SQL 쿼리: Courses 테이블에서 데이터를 불러오는 쿼리
     query = "SELECT * FROM Courses"
