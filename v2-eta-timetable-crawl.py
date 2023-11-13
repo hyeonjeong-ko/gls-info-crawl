@@ -10,6 +10,12 @@ import pandas as pd
 import sqlite3
 
 
+# GET 요청을 처리하는 엔드포인트
+@app.get("/")
+async def read_root():
+    return {"message": "Hello, World!"}
+
+
 @app.post("/scrape_course_info/")
 async def scrape_course_info(url: str):
     options = webdriver.ChromeOptions()
