@@ -266,12 +266,12 @@ app.post("/register", (req, res) => {
   });
   
   
-app.get("/timetable/searchByCourse", (req, res) => {
+app.post("/timetable/searchByCourse", (req, res) => {
  
-  const searchQuery = req.query.searchQuery; 
+  const course_name  = req.body.course_name;
 
 
-  console.log("Received search query: ", searchQuery);
+
   const selectQuery = `
     SELECT *
     FROM courses  
@@ -279,7 +279,7 @@ app.get("/timetable/searchByCourse", (req, res) => {
   `;
 
 
-  const searchPattern = `%${searchQuery}%`; 
+  const searchPattern = `%${course_name}%`; 
 
 
   db.all(
@@ -297,12 +297,10 @@ app.get("/timetable/searchByCourse", (req, res) => {
 });
 
 
-app.get("/timetable/searchByProfessor", (req, res) => {
+app.post("/timetable/searchByProfessor", (req, res) => {
  
-  const searchQuery = req.query.searchQuery; 
+  const professor  = req.body.professor;
 
-
-  console.log("Received search query: ", searchQuery);
   const selectQuery = `
     SELECT *
     FROM courses  
@@ -310,7 +308,7 @@ app.get("/timetable/searchByProfessor", (req, res) => {
   `;
 
 
-  const searchPattern = `%${searchQuery}%`; 
+  const searchPattern = `%${professor}%`; 
 
 
   db.all(
