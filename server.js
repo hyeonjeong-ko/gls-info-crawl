@@ -110,6 +110,27 @@ app.get('/courses', (req, res) => {
       res.json({ courses: rows }); // courses 테이블의 내용을 JSON으로 반환
     });
   });
+
+  app.post('/reset-timetables', (req, res) => {
+    const userId = req.body.user_id; // 클라이언트로부터 User_ID를 받기
+  
+    // Enrollments 테이블에서 해당 User_ID를 가진 학생의 모든 수강 정보를 삭제
+    const query = `
+      DELETE FROM Enrollments
+      WHERE Student_ID IN (
+        SELECT ID FROM Students WHERE User_ID = ?
+      )`;
+  
+    db.run(query, [userId], function (err) {
+      if (err) {
+        console.error(err.message);
+        res.status(500).send('Internal Server Error');
+      } else {
+        res.send({ message: '시간표가 초기화되었습니다.', affectedRows: this.changes });
+      }
+    });
+  });
+  
   
   //-----------------------------shim code--------------------------------------
   
