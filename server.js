@@ -5,7 +5,7 @@ const saltRounds = 10;
 
 
 const app = express();
-const db = new sqlite3.Database('skkedula-v1.db'); // 데이터베이스 연결
+const db = new sqlite3.Database('skkedula-v3.db'); // 데이터베이스 연결
 
 
 // body-parser 미들웨어 사용
