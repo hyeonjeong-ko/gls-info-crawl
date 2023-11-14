@@ -266,36 +266,66 @@ app.post("/register", (req, res) => {
   });
   
   
-  app.get("/timetable/search", (req, res) => {
-   
-    const searchQuery = req.query.searchQuery; 
-  
-  
-    console.log("Received search query: ", searchQuery);
-    const selectQuery = `
-      SELECT *
-      FROM courses  
-      WHERE course_name LIKE ?;  
-    `;
-  
-  
-    const searchPattern = `%${searchQuery}%`; 
-  
-  
-    db.all(
-      selectQuery,
-      [searchPattern],  
-      (err, data) => {
-        if (err) {
-   
-          return res.status(500).json({ message: "과목 검색 실패", error: err.message });
-        }
-  
-        res.json(data);
+app.get("/timetable/searchByCourse", (req, res) => {
+ 
+  const searchQuery = req.query.searchQuery; 
+
+
+  console.log("Received search query: ", searchQuery);
+  const selectQuery = `
+    SELECT *
+    FROM courses  
+    WHERE course_name LIKE ?;  
+  `;
+
+
+  const searchPattern = `%${searchQuery}%`; 
+
+
+  db.all(
+    selectQuery,
+    [searchPattern],  
+    (err, data) => {
+      if (err) {
+ 
+        return res.status(500).json({ message: "과목 검색 실패", error: err.message });
       }
-    );
-  });
-  
+
+      res.json(data);
+    }
+  );
+});
+
+
+app.get("/timetable/searchByProfessor", (req, res) => {
+ 
+  const searchQuery = req.query.searchQuery; 
+
+
+  console.log("Received search query: ", searchQuery);
+  const selectQuery = `
+    SELECT *
+    FROM courses  
+    WHERE Professor LIKE ?;  
+  `;
+
+
+  const searchPattern = `%${searchQuery}%`; 
+
+
+  db.all(
+    selectQuery,
+    [searchPattern],  
+    (err, data) => {
+      if (err) {
+ 
+        return res.status(500).json({ message: "과목 검색 실패", error: err.message });
+      }
+
+      res.json(data);
+    }
+  );
+});
 
   
 
