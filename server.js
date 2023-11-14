@@ -108,8 +108,189 @@ app.get('/courses', (req, res) => {
     });
   });
   
+  //-----------------------------shim code--------------------------------------
+  
+// 회원가입
+app.post("/register", (req, res) => {
+    const { student_ID, name, id, password, confirmPassword } = req.body;
+  
+    if (password !== confirmPassword) {
+      return res.status(400).json({ message: "비밀번호가 일치하지 않습니다." });
+    }
+  
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+      if (err) {
+        return res.status(500).json({ message: "비밀번호 해싱 오류" });
+      }
+  
+      db.run(
+        "INSERT INTO Students (Student_ID, Name, ID, PW) VALUES (?, ?, ?, ?)",
+        [student_ID, name, id, hash],
+        function (err) {
+          if (err) {
+            return res.status(500).json({ message: "유저 등록 오류" });
+          }
+          res.json({ message: "회원가입이 정상적으로 완료되었습니다." });
+        }
+      );
+    });
+  });
+  
+  // 로그인
+  app.post("/login", (req, res) => {
+    const { id, password } = req.body;
+  
+    db.get("SELECT PW FROM Students WHERE ID = ?", [id], function (err, row) {
+      if (err) {
+        return res.status(500).json({ message: "로그인 실패" });
+      }
+  
+      if (!row) {
+        return res.status(404).json({ message: "존재하지 않는 사용자입니다." });
+      }
+  
+      bcrypt.compare(password, row.PW, function (err, result) {
+        if (err) {
+          return res
+            .status(500)
+            .json({ message: "비밀번호가 일치하지 않습니다." });
+        }
+  
+        if (result) {
+          res.json({ message: "로그인 성공" });
+        } else {
+          res.status(401).json({ message: "로그인 실패" });
+        }
+      });
+    });
+  });
+  
+  // =======================================================================================================
 
+  //과목 추가, (front에서 data 입력 -> db에 추가) 
+  // course_name을 유저가 검색해서 자기가 맞는 과목을 넣을 때 course_name이 여러개일 경우..
 
+  app.post("/timetable/add", (req, res) => {
+    const course_name  = req.body.course_name;
+    const userID = req.body.userID;
+    // userID = 1
+    console.log(course_name);
+    // 과목을 courses 테이블에서 찾습니다.
+    const selectCourseQuery = `
+      SELECT *
+      FROM Courses
+      WHERE Course_name = ?
+    `;
+  
+    db.all(selectCourseQuery, [course_name], (err, courseData) => {
+      if (err) {
+        return res.status(500).json({ message: "과목 조회 실패" });
+      }
+  
+      if (!courseData || courseData.length === 0) {
+        return res.status(404).json({ message: "과목을 찾을 수 없음" });
+      }
+  
+      // 만약 course_name이 여러 개일 경우
+      if (courseData.length > 1) {
+        res.json({
+          message: "동일한 과목이 여러 개 있습니다. 선택해 주세요.",
+          courseData: courseData
+        });
+      } else {
+        // 단일 과목인 경우
+        // 찾은 과목을 timetable 테이블에 추가합니다.
+        const course_id = courseData[0].course_ID;
+        const insertTimetableQuery = `
+          INSERT INTO Enrollments (student_ID , course_ID)
+          VALUES (?, ?)
+        `;
+  
+        db.run(insertTimetableQuery, [userID, course_id], (err) => {
+          if (err) {
+            return res.status(500).json({ message: "과목 추가 실패" });
+          }
+  
+          res.json({
+            message: "과목이 성공적으로 추가되었습니다.",
+            courseData: courseData
+          });
+        });
+      }
+    });
+  });
+  
+  //course_name이 여러개여서 클라이언트 한테 요청을 보내고 fetch로 다시 돌아온다.
+  //그 selectedcourse를 db에 저장하는데 여기서 customdata 저장하는 것도 이 app.post를 사용해도 괜찮을거 같다.
+  //custom data를 받을 경우에는 유저가 직접 course_name, class_time, class_room 같은 내용을 직접 입력하는 란이 있다면.
+  app.post("/timetable/addSelectedCourse", (req, res) => {
+    const {
+      userID, course_ID
+    } = req.body;
+    const insertQuery = `
+      INSERT INTO Enrollments (student_ID , course_ID)
+      VALUES (?, ?)
+    `;
+  
+    db.run(
+      insertQuery,
+      [userID, course_ID],
+      function (err) {
+        if (err) {
+          return res.status(500).json({ message: "과목 추가 실패" });
+        }
+  
+        res.json({ message: "과목이 성공적으로 추가되었습니다." });
+      }
+    );
+  });
+  
+  
+  app.get("/timetable/search", (req, res) => {
+   
+    const searchQuery = req.query.searchQuery; 
+  
+  
+    console.log("Received search query: ", searchQuery);
+    const selectQuery = `
+      SELECT *
+      FROM courses  
+      WHERE course_name LIKE ?;  
+    `;
+  
+  
+    const searchPattern = `%${searchQuery}%`; 
+  
+  
+    db.all(
+      selectQuery,
+      [searchPattern],  
+      (err, data) => {
+        if (err) {
+   
+          return res.status(500).json({ message: "과목 검색 실패", error: err.message });
+        }
+  
+        res.json(data);
+      }
+    );
+  });
+  
+
+  
+
+//   app.get('/update-data', (req, res) => {
+//     const sql = `UPDATE Courses
+//                  SET Room_num = CAST(Room_num AS INTEGER)
+//                  WHERE Room_num LIKE '%.0'`;
+  
+//     db.run(sql, [], (err) => {
+//       if (err) {
+//         return console.error(err.message);
+//       }
+//       res.send('Data updated successfully');
+//     });
+//   });
 
 const PORT = 3000;
 app.listen(PORT, () => {
