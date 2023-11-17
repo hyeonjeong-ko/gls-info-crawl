@@ -8,6 +8,7 @@ from selenium import webdriver
 from html import unescape
 import pandas as pd
 import sqlite3
+from pydantic import BaseModel
 
 
 # GET 요청을 처리하는 엔드포인트
@@ -16,8 +17,15 @@ async def read_root():
     return {"message": "8000포트 테스트 코드 입니다."}
 
 
+class CourseInfoRequest(BaseModel):
+    userID: int
+    url: str
+
+
 @app.post("/scrape_course_info/")
-async def scrape_course_info(url: str):
+async def scrape_course_info(course_info: CourseInfoRequest):
+    userID = course_info.userID
+    url = course_info.url
     options = webdriver.ChromeOptions()
     options.add_argument("headless")
     options.add_argument("no-sandbox")
@@ -69,7 +77,7 @@ async def scrape_course_info(url: str):
     json_data_list = []
 
     # SQLite 데이터베이스 연결
-    conn = sqlite3.connect("skkedula-v1.db")
+    conn = sqlite3.connect("skkedula-v3.db")
 
     # SQL 쿼리: Courses 테이블에서 데이터를 불러오는 쿼리
     query = "SELECT * FROM Courses"
@@ -104,5 +112,23 @@ async def scrape_course_info(url: str):
         if data["Course_ID"] not in seen_codes:
             unique_json_data_list.append(data)
             seen_codes.add(data["Course_ID"])
+
+    cursor = conn.cursor()
+
+    # 데이터 삽입
+    for course in unique_json_data_list:
+        cursor.execute(
+            """
+            INSERT INTO Enrollments (Student_ID, Course_ID)
+            VALUES (?, ?)
+            """,
+            (userID, course["Course_ID"]),  # 두 개의 값을 튜플 형태로 전달
+        )
+
+    # 변경사항 저장
+    conn.commit()
+
+    # 연결 종료
+    conn.close()
 
     return unique_json_data_list
